@@ -1,0 +1,246 @@
+<style>
+    .maincontainer{
+        background: rgb(21, 106, 235);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .box{
+        width: 50%;
+        height: auto;
+        background: white;
+        border-radius: 20px;
+        padding: 15px;    
+    }
+    
+    .heading{
+        font-size: 24px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color:  rgb(21, 106, 235);
+        margin-bottom:10px ;
+        display: flex;
+         align-items: center;
+         justify-content: space-between;
+    }
+    
+    .daystyle{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    .buttonStyle{
+        width: 100%;
+    }
+    </style>
+    <html>
+        <head>
+            <title>Flight Interface</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+            <script src="/javascripts/project.js"></script>
+            <script>
+              $(document).ready(function(){
+                var dbdays=$('#dbdays').val().split(",")
+                $('.days').map((i,item)=>{
+                  dbdays.map((d)=>{
+                    
+                    if($(item).val()==d)
+                    {
+                      $(item).prop('checked',true)
+                    }
+                  })
+                })
+              })
+            </script>
+        </head>
+        
+            <div class="maincontainer">
+               <div class="box">
+                <div class="heading">
+                  <div>
+                    <img src="/images/flighticon.png" width="50">
+                    Flight Updation
+                  </div>
+                  <div>
+                    <a href="/flight/displayallflights" style="text-decoration: none
+                    ;"><img src="/images/flightlist.png" width="50" height="50"/></a>
+                    </div>
+                </div>
+                    <form action="/flight/flightedit" method="post" class="row g-3">
+                      <input type="hidden" id="dbdays" value="<%= data.days %>">
+                      <input type="hidden" name="flightid" value="<%= data.flightid %>">
+                        <div class="col-md-6">
+                            <label for="flightname" class="form-label"><b>Flight name</b></label>
+                            <input type="text" value="<%=data.flightname%>" class="form-control" name="flightname" id="flightname">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="flighttype" class="form-label"><b>Flight Type</b></label>
+                            <select id="flighttype"  name="flighttype" class="form-select">
+                              <option value="<%=data.types%>" ><%=data.types%></option>
+                              <option>Economy</option>
+                              <option>Business</option>
+                              <option>Economy/Business</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="noofseats" class="form-label"><b>Total Seats</b></label>
+                            <input type="text" class="form-control" value="<%=data.totalseats%>"name="noofseats" id="noofseats">
+                        </div>
+                        <div class="col-md-8 ">
+                            <label for="days"  class="form-label"><b>Select Flight Days</b></label>
+                          
+                            <div class="daystyle">
+                        <span class="form-check">
+
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var mc=''
+                            wd.map((item)=>{
+                                if(item=='Mon')
+                                {
+                                    mc='checked'
+                                }
+                            }) %> -->
+                            <input class="form-check-input days" type="checkbox"  name="days" value="Mon" id="days" >
+                            <label class="form-check-label " for="days">
+                              Mon
+                            </label>
+                          </span>
+                          <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var tc=''
+                            wd.map((item)=>{
+                                if(item=='Tue')
+                                {
+                                    tc='checked'
+                                }
+                            }) %> -->
+                            <input  class="form-check-input days" type="checkbox" name="days" value="Tue" id="days" >
+                            <label class="form-check-label " for="days">
+                              Tue
+                            </label>
+                          </span>
+                          <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var wc=''
+                            wd.map((item)=>{
+                                if(item=='Wed')
+                                {
+                                    wc='checked'
+                                }
+                            }) %> -->
+                            <input  class="form-check-input days" type="checkbox" name="days" value="Wed" id="days" >
+                            <label class="form-check-label " for="days">
+                              Wed
+                            </label>
+                          </span>
+                        <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var thc=''
+                            wd.map((item)=>{
+                                if(item=='Thu')
+                                {
+                                    thc='checked'
+                                }
+                            }) %> -->
+                            <!-- <input <%= thc %> class="form-check-input" type="checkbox" name="days" value="Thu" id="days" > -->
+                            <input  class="form-check-input days" type="checkbox" name="days" value="Thu" id="days" >
+                            <label class="form-check-label " for="days">
+                              Thu
+                            </label>
+                          </span>
+                          <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var fc=''
+                            wd.map((item)=>{
+                                if(item=='Fri')
+                                {
+                                    fc='checked'
+                                }
+                            }) %> -->
+                            <input class="form-check-input days" type="checkbox" name="days" value="Fri" id="days" >
+                            <label class="form-check-label " for="days">
+                              Fri
+                            </label>
+                          </span>
+                          <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var sc=''
+                            wd.map((item)=>{
+                                if(item=='Sat')
+                                {
+                                    sc='checked'
+                                }
+                            }) %> -->
+                            <input  class="form-check-input days" type="checkbox" name="days" value="Sat" id="days" >
+                            <label class="form-check-label " for="days">
+                              Sat
+                            </label>
+                          </span>
+                          <span class="form-check">
+                            <!-- <%
+                            var wd=data.days.split(",")
+                            var suc=''
+                            wd.map((item)=>{
+                                if(item=='Sun')
+                                {
+                                    suc='checked'
+                                }
+                            }) %> -->
+                            <input  class="form-check-input days" type="checkbox" name="days" value="Sun" id="days" >
+                            <label class="form-check-label " for="days">
+                              Sun
+                            </label>
+                          </span>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="sourcecity" class="form-label"><b>Source City </b></label>
+                            <select id="sourcecity" name="sourcecity" class="form-select">
+                              <option value="<%=data.sourcecity%>"><%=data.sourcecity%></option>
+                            </select>
+                          </div>
+                          <div class="col-md-3">
+                            <label for="deptime" class="form-label"><b>Departure Time</b></label>
+                            <input type="time" class="form-control" value="<%=data.departuretime%>" name="deptime" id="deptime">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="destinationcity" class="form-label"><b>Destination  City </b></label>
+                            <select id="destinationcity" name="destinationcity" class="form-select">
+                              <option value="<%=data.destinationcity%>"><%=data.destinationcity%></option>
+                            </select>
+                          </div>
+                          <div class="col-md-3">
+                            <label for="arrtime" class="form-label"><b>Arrival Time</b></label>
+                            <input type="time" value="<%=data.arrivaltime%>" class="form-control" name="arrtime" id="arrtime">
+                        </div>
+                          <div class="col-md-12">
+                            <label for="company" class="form-label"><b>Company</b></label>
+                            <input type="text" value="<%=data.company%>" class="form-control" name="company" id="company">
+                        </div>
+                          
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-secondary buttonStyle" value="Edit" name="btn">Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-secondary buttonStyle" value="Delete" name="btn">Delete</button>
+                        </div>
+                        
+                    </form>
+              
+            </div>
+            </div>
+    
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
+    </html>

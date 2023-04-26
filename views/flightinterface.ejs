@@ -1,0 +1,169 @@
+<style>
+.maincontainer{
+    background: rgb(21, 106, 235);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 50%;
+    height: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;    
+}
+
+.heading{
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color:  rgb(21, 106, 235);
+    margin-bottom:10px ;
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+.daystyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.buttonStyle{
+    width: 100%;
+}
+</style>
+<html>
+    <head>
+        <title>Flight Interface</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="/javascripts/project.js"></script>
+    </head>
+    
+        <div class="maincontainer">
+           <div class="box">
+            <div class="heading">
+              <div>
+                <img src="/images/flighticon.png" width="50">
+                Flight Interface
+              </div>
+              <div>
+                <a href="/flight/displayallflights" style="text-decoration: none
+                ;"><img src="/images/flightlist.png" width="50" height="50"/></a>
+                </div>
+            </div>
+                <form action="/flight/flightsubmit" class="row g-3" method="post" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                        <label for="flightname" class="form-label"><b>Flight name</b></label>
+                        <input type="text" class="form-control" name="flightname" id="flightname">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="flighttype" class="form-label"><b>Flight Type</b></label>
+                        <select id="flighttype" name="flighttype" class="form-select">
+                          <option selected>Choose...</option>
+                          <option>Economy</option>
+                          <option>Business</option>
+                          <option>Economy/Business</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="noofseats" class="form-label"><b>Total Seats</b></label>
+                        <input type="text" class="form-control" name="noofseats" id="noofseats">
+                    </div>
+                    <div class="col-md-8 ">
+                        <label for="days"  class="form-label"><b>Select Flight Days</b></label>
+                        <div class="daystyle">
+                    <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Mon" id="days" >
+                        <label class="form-check-label" for="days">
+                          Mon
+                        </label>
+                      </span>
+                      <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Tue" id="days" >
+                        <label class="form-check-label" for="days">
+                          Tue
+                        </label>
+                      </span>
+                      <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Wed" id="days" >
+                        <label class="form-check-label" for="days">
+                          Wed
+                        </label>
+                      </span>
+                    <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Thu" id="days" >
+                        <label class="form-check-label" for="days">
+                          Thu
+                        </label>
+                      </span>
+                      <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Fri" id="days" >
+                        <label class="form-check-label" for="days">
+                          Fri
+                        </label>
+                      </span>
+                      <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Sat" id="days" >
+                        <label class="form-check-label" for="days">
+                          Sat
+                        </label>
+                      </span>
+                      <span class="form-check">
+                        <input class="form-check-input" type="checkbox" name="days" value="Sun" id="days" >
+                        <label class="form-check-label" for="days">
+                          Sun
+                        </label>
+                      </span>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="sourcecity" class="form-label"><b>Source City </b></label>
+                        <select id="sourcecity" name="sourcecity" class="form-select">
+                          <option selected>select city...</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="deptime" class="form-label"><b>Departure Time</b></label>
+                        <input type="time" class="form-control" name="deptime" id="deptime">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="destinationcity" class="form-label"><b>Destination  City </b></label>
+                        <select id="destinationcity" name="destinationcity" class="form-select">
+                          <option selected>select city...</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="arrtime" class="form-label"><b>Arrival Time</b></label>
+                        <input type="time" class="form-control" name="arrtime" id="arrtime">
+                    </div>
+                      <div class="col-md-6">
+                        <label for="company" class="form-label"><b>Company</b></label>
+                        <input type="text" class="form-control" name="company" id="company">
+                    </div>
+                      <div class="col-md-6">
+                        <label for="logo" class="form-label"><b>Logo</b></label>
+                        <input type="file" class="form-control" name="logo" id="logo">
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-secondary buttonStyle">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="reset" class="btn btn-secondary buttonStyle">Reset</button>
+                    </div>
+                    <div class="col-md-12" style="display: flex; justify-content: center;padding: 5px; font-weight: bolder;">
+                       <%=message %>
+                    </div>
+                </form>
+          
+        </div>
+        </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
+</html>

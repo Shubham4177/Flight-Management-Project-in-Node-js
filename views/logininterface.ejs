@@ -1,0 +1,123 @@
+<style>
+    /* .loginbackground{
+           background-color: rgb(16, 90, 81);
+           height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .box{
+            background-color: white;
+            height: 90vh;
+            width: 80vw;
+            border-radius: 15px;
+             display: flex;
+            flex-direction: row;
+            
+        } */
+
+        /* .box1{
+            background-image: url("/images/loginbox1.gif");
+            background-size:cover;
+            height: 100%;
+            width: 50%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+           
+        } */
+
+        .box2{
+            background-image: url("/images/loginbox1.png");
+            background-size:cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+           
+            /* border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px; */
+        }
+
+        .loginbox{
+           background-color: transparent;
+           height: 60%;
+           width: 23%;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           border-radius: 30px;
+           box-shadow: 0 0 30px rgba(0,0,0,.5);
+           backdrop-filter: blur(2px);
+           margin-left: 90px;
+          
+        }
+
+        
+       
+        
+        
+</style>
+<html>
+    <head>
+        <title>ADMIN LOGIN</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </head>
+<body>
+    
+</body>
+<form action="/admin/chkadmin" method="post">
+
+     
+      <div class="box2">
+
+       <div class="loginbox">
+
+          
+           <div style=" margin-top: -60px;">
+            <img src="/images/adminshubh.png" width="65px" style="border-radius: 100%; border: solid  rgb(58, 8, 8) 3px;width:110px;height:110px; margin-top: 20px;" alt="">
+        </div>
+
+        <div style="font-family: poppins
+        ;font-weight: bold;font-size: large;">Admin Login</div>
+        
+        <div style="margin-top: 30px;width: 280px;">
+            <div class="input-group flex-nowrap" style=" box-shadow: 0 0 30px rgba(0,0,0,.5);">
+                <span class="input-group-text" id="addon-wrapping" style="background-color:transparent; display: flex;" ><img src="/images/userid.png" alt="" width="25px" style="justify-self: center;"></span>
+                <input type="text" name="emailid" id="emailid" class="form-control" style="background-color:transparent; color:black;font-family:poppins; font-weight:bold;" placeholder="Enter User id" aria-label="Username" aria-describedby="addon-wrapping">
+              </div>
+
+            <div class="input-group flex-nowrap" style="margin-top: 30px; box-shadow: 0 0 30px rgba(0,0,0,.5);">
+                <span class="input-group-text" id="addon-wrapping" style="background-color:transparent; display: flex;" ><img src="/images/password.png" alt="" width="25px" style="justify-self: center;"></span>
+                <input type="password" name="pwd" id="pwd" class="form-control" style="background-color:transparent; color:black;font-family:poppins; font-weight:bold;" placeholder="Enter Your Password" aria-label="Username" aria-describedby="addon-wrapping">
+
+              </div>
+             
+             
+
+        </div>
+        <div>
+            <button type="submit" class="btn" style="color: white;font-family: poppins;border: solid 0px;border-radius: 20px; margin-top: 35px;width: 150px;
+background: linear-gradient(0.25turn, rgb(5, 203, 209), rgb(115, 0, 255), rgb(142, 4, 160)); " ><b>LOGIN</b></button>
+        </div>
+
+        <div style="margin-top: 20px;font-size: 18px;text-align: center;font-weight: bold;font-family: poppins;color: red;"><%= message %></div>
+
+          </div>
+       </div>
+
+      </div>
+
+   
+</form>
+</html>
